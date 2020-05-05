@@ -1,0 +1,20 @@
+# The language to output bindings in
+#
+# possible values: "C", "C++"
+#
+# default: "C++"
+language = "C"
+
+
+
+
+# Options for wrapping the contents of the header:
+
+# An optional string of text to output at the beginning of the generated file
+# default: doesn't emit anything
+header = "/* Text to put at the beginning of the generated file. Probably a license. */"
+
+# An optional string of text to output at the end of the generated file
+# default: doesn't emit anything
+trailer = "/* Text to put at the end of the generated file */"
+
