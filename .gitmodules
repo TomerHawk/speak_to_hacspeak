@@ -1,0 +1,6 @@
+[submodule "pmpq"]
+	path = pmpq
+	url = https://github.com/TeumessianFox/pmpq.git
+[submodule "hacspec"]
+	path = hacspec
+	url = https://github.com/hacspec/hacspec
