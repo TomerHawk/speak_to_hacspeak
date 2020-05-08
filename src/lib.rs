@@ -1,6 +1,7 @@
 use hacspec::prelude::*;
 use hacspec_examples::aes_gcm::aes::*;
 use libc::c_uchar;
+use libc::uint16_t;
 
 fn aes_256_enc_dec_teso(m: &ByteSeq, key: Key256, iv: Nonce, ctr: U32, ctxt: Option<&ByteSeq>) {
     let c = aes256_encrypt(key, iv, ctr, m);
@@ -24,7 +25,7 @@ fn aes_256_decryption(c: &ByteSeq, key: Key256, iv: Nonce, ctr: U32){
 
 
 #[no_mangle]
-pub extern "C" fn teso_aes256_1(m:[c_uchar;32],k:[c_uchar;32]) {
+pub extern "C" fn teso_aes256_1(m:[u8;32],k:[u8;32]) -> [u16;32] {
 
 
     let msg = ByteSeq::from_public_slice(
@@ -44,6 +45,11 @@ pub extern "C" fn teso_aes256_1(m:[c_uchar;32],k:[c_uchar;32]) {
 
     //aes_256_enc_dec_teso(&msg, key, nonce, ctr, None /*, Some(&ctxt)*/);
     let c = aes256_encryption(&msg, key, nonce, ctr);
-    aes_256_decryption(&c, key,nonce, ctr);
+    let mut cipher:[u16;32] = [0;32];
+    for i in 0..32{
+        cipher[i] = u16::from(c[i]);
+    }
+    println!("{:?} is {:?}",c,cipher);
+    return cipher;
 
 }
