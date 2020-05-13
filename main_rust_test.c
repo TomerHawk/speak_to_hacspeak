@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include "hal.h"
-#include "config.h"
+#include "common_config.h"
 #include "simpleserial_cw.h"
 #include "aes.h"
 

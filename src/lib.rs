@@ -1,3 +1,5 @@
+#![crate_type = "staticlib"]
+
 use hacspec::prelude::*;
 use hacspec_examples::aes_gcm::aes::*;
 use libc::c_uchar;
@@ -25,7 +27,7 @@ fn aes_256_decryption(c: &ByteSeq, key: Key256, iv: Nonce, ctr: U32){
 
 
 #[no_mangle]
-pub extern "C" fn teso_aes256_1(m:[u8;32],k:[u8;32]) -> [u16;32] {
+pub extern fn teso_aes256_1(m:[u8;32],k:[u8;32]) -> [u16;32] {
 
 
     let msg = ByteSeq::from_public_slice(
