@@ -5,6 +5,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-extern uint16_t* (teso_aes256_1(unsigned char m[32], unsigned char k[32]));
+extern uint16_t* (test_me());
 
 /* Text to put at the end of the generated file */
